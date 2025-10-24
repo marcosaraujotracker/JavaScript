@@ -1,0 +1,19 @@
+function() {
+
+  var myVariable = {{DLV - order.address_info.city}};
+
+  if (myVariable) {
+
+    // Remove apenas os espaços
+
+    var noSpaces = myVariable.replace(/\s+/g, '');
+
+    return noSpaces;
+
+  } else {
+
+    return '';
+
+  }
+
+}
