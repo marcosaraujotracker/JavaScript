@@ -1,0 +1,9 @@
+function () {
+  var nome = document.querySelector('input#name').value.trim();
+ 
+  // Dividir o nome em palavras
+  var palavras = nome.split(/\s+/);
+ 
+  // Retornar a primeira palavra
+  return palavras[0];
+}
