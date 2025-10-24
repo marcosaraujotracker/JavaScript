@@ -1,0 +1,9 @@
+function() {
+
+var entrada = {{DLV - order.address_info.postal_code}};  
+
+entrada = entrada.substring(0, 5);
+
+return entrada;
+
+}
