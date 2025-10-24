@@ -1,0 +1,23 @@
+function() {
+  var items = {{DLV - order.items}}; // Supondo que items é uma lista de objetos
+  var regexPattern = /.+/; // Qualquer caractere, pelo menos uma vez
+  var result = [];
+ 
+  for (var i = 0; i < items.length; i++) {
+    var item = items[i];
+    var categoryName = item.categories_names ? item.categories_names[0] : null; // Primeiro nome da categoria
+    var itemName = item.name; // Nome do item
+ 
+    // Verificar se categoryName é uma string válida
+    if (typeof categoryName === 'string' && regexPattern.test(categoryName)) {
+      result.push(categoryName);
+    }
+    // Se categoryName não for válido, usar itemName
+    else if (typeof itemName === 'string' && regexPattern.test(itemName)) {
+      result.push(itemName);
+    }
+  }
+ 
+  // Retorna sempre uma string com os resultados concatenados
+  return result.join(', ');
+}
