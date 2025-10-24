@@ -1,0 +1,14 @@
+function () {
+  // Captura o valor do span com a classe 'city-name'
+  var cidade = document.querySelector('span.city-name').innerText;
+ 
+  // Verifica se o campo está vazio ou indefinido
+  if (!cidade) {
+    return undefined; // Retorna indefinido se o campo estiver vazio
+  }
+ 
+  // Remove espaços em branco
+  cidade = cidade.replace(/\s+/g, "");
+ 
+  return cidade;
+}
