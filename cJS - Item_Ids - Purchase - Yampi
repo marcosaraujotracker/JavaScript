@@ -1,0 +1,11 @@
+function() {
+  var products = {{DLV - order.items}};  // Captura os produtos da camada de dados
+  
+  // Usa o reduce para extrair as IDs dos produtos
+  var idsArray = products.reduce(function(arr, prod) {
+    return arr.concat(prod.product.id);  // Acessa a ID do produto em cada item
+  }, []);
+ 
+  // Retorna apenas o array de IDs
+  return idsArray;
+}
