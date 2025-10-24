@@ -1,0 +1,23 @@
+function() {           
+  var products = {{DLV - ecommerce.items}}; //matriz de produtos no padrão GA4  
+  var tam = products.length
+  var indice=0
+  var viarray =[{"item_id":products[indice].item_id,
+                 "item_name":products[indice].item_name,
+                 "item_brand": products[indice].item_brand,                              
+                 "quantity":parseFloat(products[indice].quantity),
+                 "price":products[indice].price
+                }];
+  var tam=tam-1
+    while (tam !=0){
+       var indice=indice+1
+       viarray.push ({"item_id":products[indice].item_id,
+                      "item_name":products[indice].item_name,
+                      "item_brand": products[indice].item_brand,                                 
+                      "quantity":parseFloat(products[indice].quantity),
+                      "price":products[indice].price
+                      });
+       var tam=tam-1
+                    }  
+  return viarray;
+}
