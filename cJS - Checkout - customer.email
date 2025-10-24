@@ -1,0 +1,6 @@
+function () {
+  if ({{DLV - customer.email}}) { var el={{cJS - Input - email - Yampi}}}
+    else { var el = {{DV - email_address}}}
+    
+    return el;
+}
