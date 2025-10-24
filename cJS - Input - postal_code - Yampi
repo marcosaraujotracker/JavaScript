@@ -1,0 +1,21 @@
+function () {
+  // Captura o valor do input com id 'zipcode'
+  var nome = document.querySelector('input#zipcode').value;
+ 
+  // Loga o valor do CEP para verificar se ele está sendo capturado corretamente
+  console.log('Valor do CEP:', nome);
+ 
+  // Verifica se o campo está vazio ou indefinido
+  if (!nome) {
+    return undefined; // Retorna indefinido se o campo estiver vazio
+  }
+ 
+  // Remove todos os caracteres não numéricos (inclusive acentos e caracteres especiais)
+  nome = nome.replace(/\D/g, '');
+ 
+  // Loga o valor após a remoção dos caracteres especiais
+  console.log('Valor filtrado (apenas números):', nome);
+ 
+  // Captura os primeiros 5 números
+  return nome.substring(0, 5);
+}
