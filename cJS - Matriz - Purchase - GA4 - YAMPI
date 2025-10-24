@@ -1,0 +1,30 @@
+function() {           
+  var products = {{DLV - order.items}}; // matriz de produtos
+  var tam = products.length; // comprimento da matriz de produtos
+  var indice = 0;
+  var product = products[indice].product; // acessa o objeto `product` dentro de cada item
+  var viarray = [{
+      "item_id": product.id,
+      "item_name": products[indice].name,
+      "item_brand": products[indice].product.brand,                
+      "quantity": products[indice].quantity,
+      "price": product.price // Corrigido para puxar o preço de 'product'
+    }];
+  
+  var tam = tam - 1;
+  
+  while (tam != 0) {
+    indice = indice + 1;
+    product = products[indice].product; // acessa o objeto `product` dentro de cada item
+    viarray.push({
+      "item_id": product.id,
+      "item_name": products[indice].name,
+      "item_brand": products[indice].product.brand,                 
+      "quantity": products[indice].quantity,
+      "price": product.price // Corrigido para puxar o preço de 'product'
+    });
+    tam = tam - 1;
+  }
+ 
+  return viarray;
+}
