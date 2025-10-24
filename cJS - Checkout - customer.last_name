@@ -1,0 +1,6 @@
+function () {
+  if ({{DLV - customer.last_name}}) { var el={{cJS - Input - last_name - Yampi}}}
+    else { var el = {{DV - last_name}}}
+    
+    return el;
+}
