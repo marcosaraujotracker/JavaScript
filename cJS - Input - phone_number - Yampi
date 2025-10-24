@@ -1,0 +1,25 @@
+function () {
+  // Captura o valor do input com id 'homephone'
+  var nome = document.querySelector('input#homephone').value;
+ 
+  // Verifica se o campo está vazio ou indefinido
+  if (!nome) {
+    return undefined; // Retorna indefinido se o campo estiver vazio
+  }
+ 
+  // Remove acentos do valor capturado
+  nome = nome.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+ 
+  // Remove os caracteres especiais '(', ')', '-', e '+'
+  nome = nome.replace(/[()\-\+]/g, '');
+ 
+  // Remove espaços em branco
+  nome = nome.replace(/\s+/g, '');
+ 
+  // Adiciona o prefixo '55' ao número
+  nome = '55' + nome;
+ 
+  // Retorna o valor final formatado
+  return nome;
+}
+ 
