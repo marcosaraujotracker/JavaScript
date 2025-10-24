@@ -1,0 +1,17 @@
+function () {
+  var cidadeElement = document.querySelector('span.city-uf');
+ 
+  // Verifica se o elemento existe
+  if (!cidadeElement) {
+    return undefined; // Retorna indefinido se o elemento não existir
+  }
+ 
+  var cidade = cidadeElement.innerText;
+ 
+  // Verifica se o campo está vazio
+  if (!cidade) {
+    return undefined; // Retorna indefinido se o campo estiver vazio
+  }
+ 
+  return cidade;
+}
