@@ -1,0 +1,6 @@
+function () {
+  if ({{DLV - customer.phone_number}}) { var el={{cJS - Input - phone_number - Yampi}}}
+    else { var el = {{DV - phone_number}}}
+    
+    return el;
+}
