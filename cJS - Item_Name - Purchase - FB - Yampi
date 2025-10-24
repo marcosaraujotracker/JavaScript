@@ -1,0 +1,19 @@
+function() {
+    function getData(input) {
+        var x = [];
+        for (var i = 0; i < input.length; i++) { // Loop começa do primeiro item
+            x.push(input[i].name); // Adiciona o nome de cada item
+        }
+        return x;
+    }
+ 
+    var data = getData({{DLV - order.items}});
+ 
+    // Retorna string vazia se data for undefined ou vazio
+    if (typeof data === "undefined" || data.length === 0) {
+        return ""; // Retorna string vazia se não houver dados
+    }
+ 
+    // Retorna os valores concatenados como uma string, separados por vírgula
+    return data.join(', ');
+}
