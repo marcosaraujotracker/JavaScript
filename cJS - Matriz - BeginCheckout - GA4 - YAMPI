@@ -1,0 +1,31 @@
+function() {           
+  var products = {{DLV - items}}; // matriz de produtos no padrão GA4 
+  var tam = products.length;
+  var indice = 0;
+  
+  // Adiciona o primeiro item à matriz
+  var viarray = [{
+    "item_id": products[indice].shopify_variant_id,
+    "item_name": products[indice].name,
+    "item_brand": products[indice].brand.name,    
+    "quantity": products[indice].quantity,
+    "price": parseFloat(products[indice].price) // Converte o preço para número
+  }];
+  
+  tam = tam - 1;
+ 
+  // Loop pelos itens restantes
+  while (tam != 0) {
+    indice = indice + 1;
+    viarray.push({
+      "item_id": products[indice].shopify_variant_id,
+      "item_name": products[indice].name,
+      "item_brand": products[indice].brand.name,     
+      "quantity": products[indice].quantity,
+      "price": parseFloat(products[indice].price) // Converte o preço para número
+    });
+    tam = tam - 1;
+  }
+  
+  return viarray;
+}
