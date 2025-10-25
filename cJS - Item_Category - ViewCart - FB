@@ -1,0 +1,22 @@
+function() {
+  var items = {{DLV - ecommerce.items}}; // Supondo que items é uma lista de objetos
+  var result = [];
+ 
+  for (var i = 0; i < items.length; i++) {
+    var item = items[i];
+    var productId = item.item_category || '';  // Verifica se item_category existe, caso contrário, usa string vazia
+    var fallbackProductId = item.item_name || '';  // Verifica se item_name existe, caso contrário, usa string vazia
+ 
+    // Verificar se item_category é uma string válida (não vazia)
+    if (productId.trim() !== '') {
+      result.push(productId);
+    } 
+    // Se item_category for inválido ou vazio, usar item_name
+    else if (fallbackProductId.trim() !== '') {
+      result.push(fallbackProductId);
+    }
+  }
+ 
+  // Retorna o resultado como uma string, unindo os itens com vírgula
+  return result.join(', ');
+}
