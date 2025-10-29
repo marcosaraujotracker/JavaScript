@@ -1,0 +1,33 @@
+function() {
+  var items = {{DLV - ecommerce.checkout.products}}; // Lista de objetos
+  var regexPattern = /.+/; // Qualquer caractere, pelo menos uma vez
+  var result = [];
+
+  if (!items || !items.length) {
+    return '';
+  }
+
+  for (var i = 0; i < items.length; i++) {
+    var item = items[i];
+    var categoryName = null;
+
+    // tenta pegar o primeiro nome de categoria (pode ser string ou array)
+    if (item.categories_names && Array.isArray(item.categories_names) && item.categories_names.length > 0) {
+      categoryName = item.categories_names[0];
+    }
+
+    var itemName = item.title || item.name || ''; // garante fallback se "name" não existir
+
+    // Verificar se categories_names[0] é uma string válida
+    if (typeof categoryName === 'string' && regexPattern.test(categoryName)) {
+      result.push(categoryName);
+    }
+    // Se categories_names[0] não for válido, usar item_name
+    else if (typeof itemName === 'string' && regexPattern.test(itemName)) {
+      result.push(itemName);
+    }
+  }
+
+  // Retorna o resultado como uma string concatenada, separada por vírgula
+  return result.join(', ');
+}
