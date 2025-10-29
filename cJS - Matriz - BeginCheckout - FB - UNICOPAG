@@ -1,0 +1,31 @@
+function() {           
+  var products = {{DLV - ecommerce.checkout.products}}; // matriz de produtos no padrão FB   
+  var tam = products.length;
+  var indice = 0;
+  
+  // Adiciona o primeiro item à matriz
+  var viarray = [{
+    "id": products[indice].shopify_variation_id,  // campo correto
+    "title": products[indice].title,              // corrigido: era .name
+    "item_brand": "TACTON",                       // valor fixo ou altere conforme sua loja
+    "quantity": Number(products[indice].quantity) || 0,
+    "item_price": Number(products[indice].price) || 0
+  }];
+  
+  tam = tam - 1;
+ 
+  // Loop pelos itens restantes
+  while (tam != 0) {
+    indice = indice + 1;
+    viarray.push({
+      "id": products[indice].shopify_variation_id, // campo correto
+      "title": products[indice].title,             // corrigido
+      "item_brand": "TACTON",
+      "quantity": Number(products[indice].quantity) || 0,
+      "item_price": Number(products[indice].price) || 0
+    });
+    tam = tam - 1;
+  }
+  
+  return viarray;
+}
