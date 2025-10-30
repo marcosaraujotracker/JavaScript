@@ -31,3 +31,4 @@ function() {
   // Retorna o resultado como uma string concatenada, separada por vírgula
   return result.join(', ');
 }
+ 
